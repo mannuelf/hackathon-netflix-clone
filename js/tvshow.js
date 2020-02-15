@@ -47,12 +47,12 @@ function addBackgroundImage(images) {
 
 // use add or remove classes here Cameron Was very lazy
 document.getElementById('trigger').addEventListener('click', () => {
-    let scheduleContent = document.getElementById('scheduleContent');
-    if (scheduleContent.style.display === "none") {
-      scheduleContent.style.display = "block";
-    } else {
-      scheduleContent.style.display = "none";
-    }
+  let scheduleContent = document.getElementById('scheduleContent');
+  if (scheduleContent.style.display === "none") {
+    scheduleContent.style.display = "block";
+  } else {
+    scheduleContent.style.display = "none";
+  }
 })
 
 

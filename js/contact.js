@@ -1,4 +1,4 @@
-document.getElementById('submit').addEventListener('click', function(){
+document.getElementById('submit').addEventListener('click', function () {
   const firstName = document.getElementById('firstName');
   const firstNameError = document.getElementById('firstNameError');
   let isFirstNameValid = false;
@@ -14,11 +14,10 @@ document.getElementById('submit').addEventListener('click', function(){
   let isTelNumberValid = false;
 
   // test firstname
-  if(firstName.value === ""){
+  if (firstName.value === "") {
     firstName.classList.add('is-danger');
     firstNameError.style.display = "block";
-  }
-  else{
+  } else {
     firstName.classList.remove('is-danger');
     firstNameError.style.display = "none";
     isFirstNameValid = true;
@@ -26,22 +25,20 @@ document.getElementById('submit').addEventListener('click', function(){
 
   // test email
   console.log(!emailRegex.test(email.value))
-  if(!emailRegex.test(email.value)) {
+  if (!emailRegex.test(email.value)) {
     email.classList.add('is-danger');
     emailError.style.display = "block";
-  }
-  else {
+  } else {
     email.classList.remove('is-danger');
     emailError.style.display = "none";
     isEmailValid = true;
   }
 
   // test tel number
-  if(!telNumberRegex.test(telNumber.value)) {
+  if (!telNumberRegex.test(telNumber.value)) {
     telNumber.classList.add('is-danger');
     telNumberError.style.display = "block";
-  }
-  else {
+  } else {
     telNumber.classList.remove('is-danger');
     telNumberError.style.display = "none";
     isTelNumberValid = true;
