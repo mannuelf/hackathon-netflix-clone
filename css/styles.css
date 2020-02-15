@@ -23,3 +23,8 @@
   margin-left: 16px;
   margin-top: 4px;
 }
+
+.error{
+  color: red;
+  display: none;
+}
