@@ -1,4 +1,7 @@
-const API_URL = `http://api.tvmaze.com/shows/1`;
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+console.log('id', id)
+const API_URL = `http://api.tvmaze.com/shows/${id}`;
 
 fetch(API_URL)
   .then(response => {

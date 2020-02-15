@@ -1,4 +1,4 @@
-const BASE_URL = "http://api.tvmaze.com/schedule";
+const BASE_URL = "http://api.tvmaze.com/shows";
 let cachedMovieArray = [];
 let contentContainer = document.getElementById('contentContainer');
 
@@ -11,6 +11,7 @@ fetch(BASE_URL)
 })
 
 const createCards = (cards) => {
+  console.log(cards)
   for(let i = 0; i < cards.length; i++){
     let img;
     (cards[i].image)? img = cards[i].image.original : img = "https://www.chronicle.com/blogs/linguafranca/files/2017/11/Nothing-to-See-15a34a2fc727c8.jpg"
