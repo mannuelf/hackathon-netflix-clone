@@ -13,21 +13,25 @@ fetch(API_URL)
 
 
 function renderPage(tvShow) {
+  console.log(tvShow);
   let showTitle = document.querySelector(".title");
   let showDescription = document.querySelector(".subtitle");
   let showCoverImage = tvShow.image;
+
   showTitle.innerHTML = tvShow.name;
   showDescription.innerHTML = tvShow.summary;
+
   getCoverPhoto(showCoverImage);
   addBackgroundImage(showCoverImage);
 }
 
-function getCoverPhoto(images) {
+function getCoverPhoto(image) {
   let showCoverPhoto = document.querySelector(".cover-photo");
-  showCoverPhoto.src = images.medium;
+  showCoverPhoto.src = image.medium;
 }
 
 function addBackgroundImage(images) {
-  let backgroundPhoto = document.querySelector("body");
-  backgroundPhoto.style.backgroundImage = images.medium;
+  console.log(images.original);
+  let backgroundPhoto = document.querySelector(".background-photo");
+  backgroundPhoto.style.backgroundImage = `url(${images.original})`;
 }
