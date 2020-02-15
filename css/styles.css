@@ -33,8 +33,23 @@
           background-position: bottom;
           background-repeat: no-repeat;
           background-size: cover;
-        }
+}
+
 .error{
   color: red;
   display: none;
+}
+
+
+.scheduleContent{
+  display: none;
+}
+
+.subtitle {
+  color: black;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.25;
+  background-color: rgba(255,255,255,0.6);
+  padding: 20px;
 }
