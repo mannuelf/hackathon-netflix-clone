@@ -2,21 +2,34 @@ const BASE_URL = "http://api.tvmaze.com/shows";
 let cachedMovieArray = [];
 let contentContainer = document.getElementById('contentContainer');
 
+function getResponse(response){
+  return response.json()
+}
 
-fetch(BASE_URL)
-  .then(response => {
-    return response.json()
-  })
-  .then(result => {
+function getJson(result) {
     cachedMovieArray = result;
     createCards(cachedMovieArray)
-  })
+}
+
+function showError(error) {
+  console.log(error);
+}
+
+fetch(BASE_URL)
+  .then(getResponse)
+  .then(getJson)
+  .catch(showError);
 
 const createCards = (cards) => {
-  console.log(cards)
+  console.log(cards);
   for (let i = 0; i < cards.length; i++) {
+    console.log(cards[i].id);
     let img;
-    (cards[i].image) ? img = cards[i].image.original : img = "https://www.chronicle.com/blogs/linguafranca/files/2017/11/Nothing-to-See-15a34a2fc727c8.jpg"
+
+    (cards[i].image) ?
+      img = cards[i].image.original :
+      img = "https://www.chronicle.com/blogs/linguafranca/files/2017/11/Nothing-to-See-15a34a2fc727c8.jpg";
+
     contentContainer.innerHTML +=
       `<div class="column is-one-quarter">
         <div class="card">

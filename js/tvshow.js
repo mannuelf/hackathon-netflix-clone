@@ -1,6 +1,10 @@
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get('id');
+
+const urlParams = new URLSearchParams(document.location.search);
+
+const id = urlParams.get(`id`);
+console.log(id);
 const API_URL = `http://api.tvmaze.com/shows/${id}`;
+console.log(API_URL);
 
 fetch(API_URL)
   .then(response => {
