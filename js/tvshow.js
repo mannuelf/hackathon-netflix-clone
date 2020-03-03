@@ -1,10 +1,6 @@
-
 const urlParams = new URLSearchParams(document.location.search);
-
 const id = urlParams.get(`id`);
-console.log(id);
 const API_URL = `http://api.tvmaze.com/shows/${id}`;
-console.log(API_URL);
 
 fetch(API_URL)
   .then(response => {
@@ -17,13 +13,10 @@ fetch(API_URL)
     console.log(error);
   });
 
-
 function renderPage(tvShow) {
-  console.log(tvShow);
   let showTitle = document.querySelector(".title");
   let showDescription = document.querySelector(".subtitle");
   let schedule = document.getElementById("schedule");
-
   let showCoverImage = tvShow.image;
 
   showTitle.innerHTML = tvShow.name;
@@ -47,7 +40,6 @@ function addBackgroundImage(images) {
   let backgroundPhoto = document.querySelector(".background-photo");
   backgroundPhoto.style.backgroundImage = `url(${images.original})`;
 }
-
 
 // use add or remove classes here Cameron Was very lazy
 document.getElementById('trigger').addEventListener('click', () => {
