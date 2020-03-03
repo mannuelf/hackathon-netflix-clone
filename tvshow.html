@@ -10,8 +10,7 @@
   <title>Netflix clone</title>
 </head>
 <body>
-<div class="background-photo"></div>
-<section class="hero is-info is-large">
+<section class="hero is-info is-large background-photo">
   <div class="hero-head">
     <nav class="navbar">
       <div class="container">
@@ -31,10 +30,10 @@
               Home
             </a>
             <a class="navbar-item">
-              Examples
+              TV SHOWS
             </a>
             <a class="navbar-item">
-              Documentation
+              MOVIES
             </a>
             <span class="navbar-item">
               <a class="button is-info is-inverted">
@@ -66,22 +65,13 @@
       <div class="container">
         <ul>
           <li class="is-active">
-            <a>Overview</a>
+            <a id="tv-schedule">Schedule</a>
           </li>
           <li>
-            <a>Modifiers</a>
+            <a id="tv-seasons">Seasons</a>
           </li>
           <li>
-            <a>Grid</a>
-          </li>
-          <li>
-            <a>Elements</a>
-          </li>
-          <li>
-            <a>Components</a>
-          </li>
-          <li>
-            <a>Layout</a>
+            <a id="tv-episodes">Episodes</a>
           </li>
         </ul>
       </div>
@@ -89,8 +79,22 @@
   </div>
 </section>
 <section class="carousel">
+  <div id="show-schedule" class="section">
+    <h1>Schedule</h1>
+    <div class="inner"></div>
+  </div>
 
+  <div id="show-seasons" class="section">
+    <h1>Seasons</h1>
+    <div class="inner"></div>
+  </div>
+
+  <div id="show-episodes" class="section">
+    <h1>Episodes</h1>
+    <div class="inner"></div>
+  </div>
 </section>
+
 <footer class="footer">
   <div class="content has-text-centered">
     Our TV app 2020

@@ -1,39 +1,34 @@
 const urlParams = new URLSearchParams(document.location.search);
 const id = urlParams.get(`id`);
 const API_URL = `http://api.tvmaze.com/shows/${id}`;
+const API_EPISODES = `http://api.tvmaze.com/shows/${id}/episodes`;
+const API_SEASONS = `http://api.tvmaze.com/shows/${id}/seasons`;
+const loadingIcon = `<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
 
 fetch(API_URL)
-  .then(response => {
-    return response.json();
-  })
-  .then(json => {
-    renderPage(json);
-  })
-  .catch(error => {
-    console.log(error);
-  });
+  .then(response => response.json())
+  .then(json => renderPage(json))
+  .catch(error => console.log(error));
+
+
+fetch(API_EPISODES)
+  .then(response => response.json())
+  .then(json => renderEpisodes(json))
+  .catch(error => console.log(error));
+
+  fetch(API_SEASONS)
+  .then(response => response.json())
+  .then(json => renderSeasons(json))
+  .catch(error => console.log(error));
 
 function renderPage(tvShow) {
-  let showTitle = document.querySelector(".title");
-  let showDescription = document.querySelector(".subtitle");
-  let schedule = document.getElementById("schedule");
-  let showCoverImage = tvShow.image;
+  const showTitle = document.querySelector(".title");
+  const showDescription = document.querySelector(".subtitle");
 
   showTitle.innerHTML = tvShow.name;
   showDescription.innerHTML = tvShow.summary;
-  schedule.innerHTML = tvShow.schedule.time
 
-  tvShow.schedule.days.forEach(value => {
-    schedule.innerHTML += `<div> ${value}</div>`
-  });
-
-  getCoverPhoto(showCoverImage);
-  addBackgroundImage(showCoverImage);
-}
-
-function getCoverPhoto(image) {
-  let showCoverPhoto = document.querySelector(".cover-photo");
-  showCoverPhoto.src = image.medium;
+  addBackgroundImage(tvShow.image);
 }
 
 function addBackgroundImage(images) {
@@ -41,14 +36,16 @@ function addBackgroundImage(images) {
   backgroundPhoto.style.backgroundImage = `url(${images.original})`;
 }
 
-// use add or remove classes here Cameron Was very lazy
-document.getElementById('trigger').addEventListener('click', () => {
-  let scheduleContent = document.getElementById('scheduleContent');
-  if (scheduleContent.style.display === "none") {
-    scheduleContent.style.display = "block";
-  } else {
-    scheduleContent.style.display = "none";
-  }
-})
+function renderEpisodes(episodes) {
+  const episodeContainer = document.querySelector("#show-seasons .inner");
+  episodes.forEach(episode => {
+    episodeContainer.innerHTML += `<img src="${episode.image.medium}" alt="" class="show-season__image" >`;
+  });
+}
 
-
+function renderSeasons(seasons) {
+  const seasonsContainer = document.querySelector("#show-episodes .inner");
+  seasons.forEach(season => {
+    seasonsContainer.innerHTML += `<img src="${season.image.medium}" alt="" class="show-episode__image" >`;
+  });
+}
