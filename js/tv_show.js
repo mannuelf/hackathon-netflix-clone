@@ -4,7 +4,12 @@ const corsFix = `https://cors-anywhere.herokuapp.com/`;
 const API_URL = `http://api.tvmaze.com/shows/${id}`;
 const API_EPISODES = `http://api.tvmaze.com/shows/${id}/episodes`;
 const API_SEASONS = `http://api.tvmaze.com/shows/${id}/seasons`;
-const loadingIcon = `<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
+
+const showTitle = document.querySelector(".title");
+const showDescription = document.querySelector(".subtitle");
+const backgroundPhoto = document.querySelector(".background-photo");
+const episodeContainer = document.querySelector("#show-seasons .inner");
+const seasonsContainer = document.querySelector("#show-episodes .inner");
 
 fetch(corsFix+API_URL)
   .then(response => response.json())
@@ -22,30 +27,25 @@ fetch(corsFix+API_SEASONS)
   .catch(error => console.log(error));
 
 function renderPage(tvShow) {
-  const showTitle = document.querySelector(".title");
-  const showDescription = document.querySelector(".subtitle");
-
   showTitle.innerHTML = tvShow.name;
   showDescription.innerHTML = tvShow.summary;
-
-  addBackgroundImage(tvShow.image);
+  renderHeroBannerPhoto(tvShow.image);
 }
 
-function addBackgroundImage(images) {
-  let backgroundPhoto = document.querySelector(".background-photo");
+function renderHeroBannerPhoto(images) {
   backgroundPhoto.style.backgroundImage = `url(${images.original})`;
 }
 
 function renderEpisodes(episodes) {
-  const episodeContainer = document.querySelector("#show-seasons .inner");
   episodes.forEach(episode => {
-    episodeContainer.innerHTML += `<img src="${episode.image.medium}" alt="" class="show-season__image" >`;
+    const coverPhoto = episode.image ? episode.image.medium : "https://placeimg.com/250/150/any";
+    episodeContainer.innerHTML += `<img src="${coverPhoto}" alt="" class="show-season__image" >`;
   });
 }
 
 function renderSeasons(seasons) {
-  const seasonsContainer = document.querySelector("#show-episodes .inner");
   seasons.forEach(season => {
-    seasonsContainer.innerHTML += `<img src="${season.image.medium}" alt="" class="show-episode__image" >`;
+    const coverPhoto = season.image ? season.image.medium : "https://placeimg.com/250/150/any";
+    seasonsContainer.innerHTML += `<img src="${coverPhoto}" alt="" class="show-episode__image" >`;
   });
 }
