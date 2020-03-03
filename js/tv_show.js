@@ -1,22 +1,22 @@
 const urlParams = new URLSearchParams(document.location.search);
 const id = urlParams.get(`id`);
+const corsFix = `https://cors-anywhere.herokuapp.com/`;
 const API_URL = `http://api.tvmaze.com/shows/${id}`;
 const API_EPISODES = `http://api.tvmaze.com/shows/${id}/episodes`;
 const API_SEASONS = `http://api.tvmaze.com/shows/${id}/seasons`;
 const loadingIcon = `<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
 
-fetch(API_URL)
+fetch(corsFix+API_URL)
   .then(response => response.json())
   .then(json => renderPage(json))
   .catch(error => console.log(error));
 
-
-fetch(API_EPISODES)
+fetch(corsFix+API_EPISODES)
   .then(response => response.json())
   .then(json => renderEpisodes(json))
   .catch(error => console.log(error));
 
-  fetch(API_SEASONS)
+fetch(corsFix+API_SEASONS)
   .then(response => response.json())
   .then(json => renderSeasons(json))
   .catch(error => console.log(error));

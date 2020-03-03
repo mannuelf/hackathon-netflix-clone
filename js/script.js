@@ -1,6 +1,8 @@
 const BASE_URL = "http://api.tvmaze.com/shows?page=1";
+const contentContainer = document.getElementById('contentContainer');
+const containerDiv = document.querySelector(".container");
+const loadingIcon = document.querySelector(".loading-icon");
 let cachedMovieArray = [];
-let contentContainer = document.getElementById('contentContainer');
 
 function getResponse(response){
   return response.json()
@@ -28,7 +30,7 @@ const createCards = (cards) => {
         img = "https://www.chronicle.com/blogs/linguafranca/files/2017/11/Nothing-to-See-15a34a2fc727c8.jpg";
       
       contentContainer.innerHTML += `
-        <div class="column">
+        <div class="column animate fadeIn">
           <div class="card">
               <div class="card-image">
                 <div class="image is-4by3 thumbnail" style="background-image: url(${img});"></div>
@@ -54,6 +56,7 @@ const createCards = (cards) => {
             </div>
           </div>`;
     });
+    loadingIcon.classList.add("is-hidden-all");
 };
 
 

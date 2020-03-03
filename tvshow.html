@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"/>
   <link rel="stylesheet" href="./css/styles.css"/>
   <title>Netflix clone</title>
 </head>
 <body>
-<section class="hero is-info is-large background-photo">
+<section class="hero is-dark is-medium background-photo">
   <div class="hero-head">
-    <nav class="navbar">
+    <nav class="navbar is-dark">
       <div class="container">
         <div class="navbar-brand">
-          <a class="navbar-item">
+          <a href="index.html" class="navbar-item">
             HOMEFLIX
           </a>
           <span class="navbar-burger burger" data-target="navbarMenuHeroB">
@@ -35,14 +34,20 @@
             <a class="navbar-item">
               MOVIES
             </a>
-            <span class="navbar-item">
-              <a class="button is-info is-inverted">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>Download</span>
-              </a>
-            </span>
+            <div class="navbar-item">
+              <div class="buttons">
+                <div class="field is-grouped">
+                  <p class="control is-expanded">
+                    <input class="input" type="text" placeholder="Find a repository" id="searchQuery">
+                  </p>
+                  <p class="control">
+                    <a class="button is-info" id="search">
+                      Search
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -65,33 +70,36 @@
       <div class="container">
         <ul>
           <li class="is-active">
-            <a id="tv-schedule">Schedule</a>
+            <a class="tabs-item" id="tv-schedule">Schedule</a>
           </li>
           <li>
-            <a id="tv-seasons">Seasons</a>
+            <a class="tabs-item" id="tv-seasons">Seasons</a>
           </li>
           <li>
-            <a id="tv-episodes">Episodes</a>
+            <a class="tabs-item" id="tv-episodes">Episodes</a>
           </li>
         </ul>
       </div>
     </nav>
   </div>
 </section>
-<section class="carousel">
-  <div id="show-schedule" class="section">
-    <h1>Schedule</h1>
-    <div class="inner"></div>
-  </div>
 
-  <div id="show-seasons" class="section">
-    <h1>Seasons</h1>
-    <div class="inner"></div>
-  </div>
-
-  <div id="show-episodes" class="section">
-    <h1>Episodes</h1>
-    <div class="inner"></div>
+<section class="show-carousel">
+  <div class="container">
+    <div class="show-carousel__section" id="show-schedule" >
+      <h1>Schedule</h1>
+      <div class="inner"></div>
+    </div>
+  
+    <div class="show-carousel__section" id="show-seasons">
+      <h1>Seasons</h1>
+      <div class="inner"></div>
+    </div>
+  
+    <div class="show-carousel__section" id="show-episodes">
+      <h1>Episodes</h1>
+      <div class="inner"></div>
+    </div>
   </div>
 </section>
 
@@ -100,6 +108,7 @@
     Our TV app 2020
   </div>
 </footer>
-<script src="./js/tvshow.js"></script>
+
+<script src="./js/tv_show.js"></script>
 </body>
 </html>

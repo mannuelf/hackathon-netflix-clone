@@ -1,7 +1,27 @@
-body {
+@import url(loader.css);
+@import url(animate.css);
+
+body,
+html {
   background-color: #333;
 }
 
+.loading-icon {
+  margin: 10% auto;
+  width: fit-content;
+  height: fit-content;
+}
+
+.is-hidden-all {
+  display: none;
+}
+
+.navbar.is-dark {
+  background-color: #101010;
+}
+.hero.is-dark .subtitle {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .card {
   margin-top: 30px;
 }
@@ -34,7 +54,7 @@ body {
 }
 
 .background-photo {
-  background-position: bottom;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -42,6 +62,7 @@ body {
 .carousel {
   color: white;
 }
+
 .error {
   color: red;
   display: none;

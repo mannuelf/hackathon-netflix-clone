@@ -10,36 +10,59 @@
   <title>Netflix clone</title>
 </head>
 <body>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item logo" href="https://bulma.io">
-        HOMEFLIX
-      </a>
-
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item logo" href="index.html">
+          HOMEFLIX
+        </a>
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarMenuHeroB" class="navbar-menu">  
+        <div class="navbar-end">
+          <a class="navbar-item">
+            HOME
+          </a>
+    
+          <a class="navbar-item">
+            TV SHOWS
+          </a>
+    
+          <a class="navbar-item">
+            MOVIES
+          </a>
+          <div class="navbar-item">
+            <div class="buttons">
+              <div class="field is-grouped">
+                <p class="control is-expanded">
+                  <input class="input" type="text" placeholder="Find a repository" id="searchQuery">
+                </p>
+                <p class="control">
+                  <a class="button is-info" id="search">
+                    Search
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
-  <section class="section">
-    <div class="container">
-        <div class="columns">
-          <div class="column is-10">
-            <input class="input is-primary" type="text" placeholder="Search for a show by name" id="searchQuery">
-          </div>
-          <div class="column is-2">
-            <button class="button is-info" id="search">
-              Search
-            </button>
-          </div>
-        </div>
-        <div class="columns is-multiline is-mobile" id="contentContainer">
-          
-        </div>
-    </div>
-  </section>
+
+  <div class="container">
+      <div class="loading-icon animate fadeIn">
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      </div>
+      <div class="columns is-multiline is-mobile" id="contentContainer"></div>
+  </div>
+
   <footer class="footer">
     <div class="content has-text-centered">
       Our TV app 2020
