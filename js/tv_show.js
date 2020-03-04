@@ -11,17 +11,17 @@ const backgroundPhoto = document.querySelector(".background-photo");
 const episodeContainer = document.querySelector("#show-seasons .inner");
 const seasonsContainer = document.querySelector("#show-episodes .inner");
 
-fetch(corsFix+API_URL)
+fetch(API_URL)
   .then(response => response.json())
   .then(json => renderPage(json))
   .catch(error => console.log(error));
 
-fetch(corsFix+API_EPISODES)
+fetch(API_EPISODES)
   .then(response => response.json())
   .then(json => renderEpisodes(json))
   .catch(error => console.log(error));
 
-fetch(corsFix+API_SEASONS)
+fetch(API_SEASONS)
   .then(response => response.json())
   .then(json => renderSeasons(json))
   .catch(error => console.log(error));
