@@ -1,9 +1,9 @@
 const urlParams = new URLSearchParams(document.location.search);
 const id = urlParams.get(`id`);
 const corsFix = `https://cors-anywhere.herokuapp.com/`;
-const API_URL = `http://api.tvmaze.com/shows/${id}`;
-const API_EPISODES = `http://api.tvmaze.com/shows/${id}/episodes`;
-const API_SEASONS = `http://api.tvmaze.com/shows/${id}/seasons`;
+const API_URL = `https://api.tvmaze.com/shows/${id}`;
+const API_EPISODES = `https://api.tvmaze.com/shows/${id}/episodes`;
+const API_SEASONS = `https://api.tvmaze.com/shows/${id}/seasons`;
 
 const showTitle = document.querySelector(".title");
 const showDescription = document.querySelector(".subtitle");

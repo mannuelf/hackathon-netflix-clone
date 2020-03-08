@@ -1,4 +1,4 @@
-const BASE_URL = "http://api.tvmaze.com/shows?page=1";
+const BASE_URL = "https://api.tvmaze.com/shows?page=1";
 const contentContainer = document.getElementById('contentContainer');
 const containerDiv = document.querySelector(".container");
 const loadingIcon = document.querySelector(".loading-icon");
